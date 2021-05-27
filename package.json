@@ -23,6 +23,7 @@
         "build": "vue-cli-service build --target lib --name WTUI ./packages/index.js",
         "dev:docs": "vuepress dev docs",
         "build:docs": "vuepress build docs",
+        "docs": "bash ./update-docs.sh",
         "commit": "git add -A && git-cz",
         "release:lib": "release-it",
         "release:docs": "npm run build:docs && gh-pages -d docs/.vuepress/dist",
