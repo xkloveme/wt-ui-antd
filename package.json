@@ -1,8 +1,9 @@
 {
-    "name": "wt-ui",
-    "version": "0.3.4",
-    "author": "xkloveme <xkloveme@qq.com>",
-    "license": "MIT",
+    "name": "@wt/wt-ui-antd",
+    "version": "1.0.0",
+    "author": "xkloveme <xkloveme@gmail.com>",
+    "private": false,
+    "license": "ISC",
     "main": "dist/WTUI.common.js",
     "unpkg": "dist/WTUI.umd.min.js",
     "files": [
