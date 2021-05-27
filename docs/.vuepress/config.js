@@ -1,16 +1,16 @@
 const path = require('path')
 
 module.exports = {
-    title: '组件库文档中心',
-    description: '轻量级组件库',
+    title: 'WT-UI-ANTD',
+    description: 'vue2.0 antd组件库',
     markdown: {
         lineNumbers: true,
     },
-    base: '/wt-ui/',
+    base: '/wt-ui-antd/',
     theme: 'antdocs',
     themeConfig: {
-        repo: 'https://github.com/lq782655835/yi-ui',
-        docsRepo: 'https://github.com/lq782655835/yi-ui',
+        repo: 'https://github.com/xkloveme/wt-ui-antd',
+        docsRepo: 'https://github.com/xkloveme/wt-ui-antd',
         docsDir: 'docs',
         docsBranch: 'master',
         nav: [
@@ -19,14 +19,14 @@ module.exports = {
         ],
         sidebar: [
             {
-                title: '指导',
+                title: '起步',
                 collapsable: false,
                 children: [
                     'quickstart.md',
                 ],
             },
             {
-                title: '基础组件',
+                title: 'WT组件',
                 collapsable: false,
                 children: [
                     'base/layout.md',
@@ -44,17 +44,17 @@ module.exports = {
                 {
                 text: 'Ads details here',
                 image:'https://cn.bing.com/th?id=OHR.LoughriggTarn_ZH-CN1404327665_1920x1080.jpg',
-                link: 'https://vuepress.vuejs.org/'
+                link: 'https://github.com/xkloveme/wt-ui-antd'
                 },
                 {
                 text: 'Ads details here',
                 image:'https://cn.bing.com/th?id=OHR.MetamorphicRocks_ZH-CN9753251368_1920x1080.jpg',
-                link: 'https://vuepress.vuejs.org/'
+                link: 'https://github.com/xkloveme/wt-ui-antd'
                 },
                 {
                 text: 'Ads details here',
                 image:'https://cn.bing.com/th?id=OHR.KeichitsuCrocuse_ZH-CN1061292366_1920x1080.jpg',
-                link: 'https://vuepress.vuejs.org/'
+                link: 'https://github.com/xkloveme/wt-ui-antd'
                 }
             ]
         },
