@@ -3,132 +3,266 @@
 ## 基本使用
 
 ::: demo
-```vue
-<template>
-  <u-layout dir="v">
-    <u-layout>
-      <u-button>普通按钮</u-button>
-      <u-button type="primary">主要按钮</u-button>
-      <u-button type="success">成功按钮</u-button>
-      <u-button type="warning">警告按钮</u-button>
-      <u-button type="danger">禁用按钮</u-button>
-      <u-button type="info">消息按钮</u-button>
-    </u-layout>
-    <u-layout>
-      <u-button round>普通按钮</u-button>
-      <u-button type="primary" round>主要按钮</u-button>
-      <u-button type="success" round>成功按钮</u-button>
-      <u-button type="warning" round>警告按钮</u-button>
-      <u-button type="danger" round>禁用按钮</u-button>
-      <u-button type="info" round>消息按钮</u-button>
-    </u-layout>
-    <u-layout>
-      <u-button icon="edit" circle />
-      <u-button icon="share" type="primary" circle />
-      <u-button icon="share" type="success" circle />
-      <u-button icon="share" type="warning" circle />
-      <u-button icon="delete" type="danger" circle />
-      <u-button icon="search" type="info" circle />
-    </u-layout>
-    <u-layout>
-      <u-button type="text">文字按钮</u-button>
-      <u-button type="text" disabled>禁用按钮</u-button>
-    </u-layout>
-  </u-layout>
-</template>
-```
-:::
 
-## icon
-::: demo
 ```vue
 <template>
     <div>
-      <u-button type="primary" icon="edit"></u-button>
-      <u-button type="primary" icon="share"></u-button>
-      <u-button type="primary" icon="delete"></u-button>
-      <u-button type="primary" icon="search">搜索</u-button>
-      <u-button type="primary">上传 <u-icon name="backup" /></u-button>
+        <div>
+            <wt-button type="primary">
+                Primary
+            </wt-button>
+            <wt-button>Default</wt-button>
+            <wt-button type="dashed">
+                Dashed
+            </wt-button>
+            <wt-button type="danger">
+                Danger
+            </wt-button>
+            <a-config-provider :auto-insert-space-in-button="false">
+                <wt-button type="primary">
+                    按钮
+                </wt-button>
+            </a-config-provider>
+            <wt-button type="primary">
+                按钮
+            </wt-button>
+            <wt-button type="link">
+                Link
+            </wt-button>
+        </div>
     </div>
 </template>
 ```
+
 :::
 
-## to/href
+## icon & size
+
 ::: demo
+
+```vue
+<template>
+  <div>
+    <a-radio-group :value="size" @change="handleSizeChange">
+      <a-radio-button value="large">
+        Large
+      </a-radio-button>
+      <a-radio-button value="default">
+        Default
+      </a-radio-button>
+      <a-radio-button value="small">
+        Small
+      </a-radio-button>
+    </a-radio-group>
+    <br></br>
+    <wt-button type="primary" :size="size">
+      Primary
+    </wt-button>
+
+    <wt-button :size="size">
+      Normal
+    </wt-button>
+
+    <wt-button type="dashed" :size="size">
+      Dashed
+    </wt-button>
+    <wt-button type="danger" :size="size">
+      Danger
+    </wt-button>
+    <wt-button type="link" :size="size">
+      Link
+    </wt-button>
+    <br></br>
+    <wt-button type="primary" icon="download" :size="size" />
+    <wt-button type="primary" shape="circle" icon="download" :size="size" />
+    <wt-button type="primary" shape="round" icon="download" :size="size" />
+    <wt-button type="primary" icon="download" :size="size">
+      Download
+    </wt-button>
+      <br><br>
+    <wt-button type="primary" icon="download" :size="size" :loading="true"/>
+    <wt-button type="primary" shape="circle" icon="download" :size="size" :loading="true"/>
+    <wt-button type="primary" shape="round" icon="download" :size="size" :loading="true"/>
+    <wt-button type="primary" icon="download" :size="size" :loading="true">
+      Download
+    </wt-button>
+      <br><br>
+    <a-button-group :size="size">
+      <wt-button type="primary">
+        <a-icon type="left" />Backward
+      </wt-button>
+      <wt-button type="primary">
+        Forward<a-icon type="right" />
+      </wt-button>
+    </a-button-group>
+  </div>
+</template>
+<script>
+  export default {
+    data() {
+      return {
+        size: 'large',
+      };
+    },
+    methods: {
+      handleSizeChange(e) {
+        this.size = e.target.value;
+      },
+    },
+  };
+</script>
+
+```
+
+:::
+
+## href
+
+::: demo
+
 ```vue
 <template>
     <div>
-        <u-button to="/components/unit/link" type="primary">导航按钮</u-button>
-        <u-button href="http://www.baidu.com" type="primary">对外导航按钮</u-button>
+        <wt-button href="http://www.bing.com" type="primary">外链按钮</wt-button>
     </div>
 </template>
 ```
+
 :::
 
-## size
-::: demo
-```vue
-<template>
-  <u-layout dir="v">
-    <u-layout>
-      <u-button size="l">大按钮</u-button>
-      <u-button>普通按钮</u-button>
-      <u-button size="s">小按钮</u-button>
-      <u-button size="xs">超小按钮</u-button>
-    </u-layout>
-    <u-layout>
-      <u-button size="l" round>大按钮</u-button>
-      <u-button round>普通按钮</u-button>
-      <u-button size="s" round>小按钮</u-button>
-      <u-button size="xs" round>超小按钮</u-button>
-    </u-layout>
-  </u-layout>
-</template>
-```
-:::
+## tips
 
-## 按钮组
 ::: demo
+
 ```vue
 <template>
-  <u-button-group>
-    <u-button type="primary" icon="share">上一页</u-button>
-    <u-button type="primary" icon="share">下一页</u-button>
-  </u-button-group>
+    <div>
+        <wt-button tips="正常按钮">
+            Normal
+        </wt-button>
+        <wt-button type="dashed" tips="虚线按钮">
+            Dashed
+        </wt-button>
+        <wt-button type="danger" tips="危险按钮">
+            Danger
+        </wt-button>
+        <wt-button type="link" tips="链接">
+            Link
+        </wt-button>
+    </div>
 </template>
 ```
+
 :::
 
 ## disabled
+
 ::: demo
+
 ```vue
 <template>
-  <u-button disabled>禁用按钮</u-button>
+    <div :style="{ margin: '10px 0' }">
+        <wt-button type="primary">
+            Primary
+        </wt-button>
+        <wt-button type="primary" disabled>
+            Primary(disabled)
+        </wt-button>
+        <br />
+        <br />
+        <wt-button>Default</wt-button>
+        <wt-button disabled>
+            Default(disabled)
+        </wt-button>
+        <br />
+        <br />
+        <wt-button type="dashed">
+            Dashed
+        </wt-button>
+        <wt-button type="dashed" disabled>
+            Dashed(disabled)
+        </wt-button>
+        <br />
+        <br />
+        <wt-button type="link">
+            Link
+        </wt-button>
+        <wt-button type="link" disabled>
+            Link(disabled)
+        </wt-button>
+        <div :style="{ margin: '8px 8px 0 8px' }">
+            <wt-button ghost>
+                Ghost
+            </wt-button>
+            <wt-button ghost disabled>
+                Ghost(disabled)
+            </wt-button>
+        </div>
+    </div>
 </template>
 ```
+
 :::
-
-## 属性设置
-
-| 参数 | 说明 | 类型| 可选值| 默认值|
-| --- | --- | --- | --- | --- |
-type | 主题 | String | primary/success/warning/danger/info/text | -
-size | 预设输入框尺寸 | String | l/s/xs | -
-round | 是否圆角按钮	 | Boolean | - | false
-circle | 是否圆形按钮	 | Boolean | - | false
-icon | 图标	 | String | - | -
-href | 跳转的链接地址 | String | - | -
-to | 配合vue-router, 与router-link的to属性相同 | String/Location | - | -
-target | 链接打开的方式(原声属性) | String | _blank/_self/_parent/_top | _self
-append | 配合vue-router, 为true时, 在当前路径前追加to的路径 | Boolean | true/false | false
-replace | 配合vue-router, 为true时, 点击调用router.replace(), 不会在导航留下记录 | Boolean | true/false | false
-disabled | 是否禁用, 禁用后不响应click事件 | Boolean | true/false | false
 
 ## 事件
 
-| 事件名| 说明| 回调值|
-| -- | -- | -- |
-| @click |  点击按钮时触发 | event |
-| @before-navigate |  使用router相关属性切换路由前触发 | event: {to, replace, preventDefault} |
-| @navigate |  使用router相关属性切换路由后触发 | event: {to, replace, exact} |
+::: demo
+
+```vue
+<template>
+    <div>
+        <wt-button type="link" :tips="num"> {{ num }} </wt-button><br />您可以点击体验按钮防抖<br />
+        <wt-button type="danger" icon="minus-circle" @click="handleClickSubtract"
+            >疯狂点击减一项</wt-button
+        >
+        <wt-button type="primary" icon="plus-circle" @click="handleClickAdd"
+            >疯狂点击加一项</wt-button
+        >
+    </div>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            num: 100
+        }
+    },
+    methods: {
+        handleClickAdd(e) {
+            this.num++
+        },
+        handleClickSubtract(e) {
+            this.num--
+        }
+    }
+}
+</script>
+```
+
+:::
+
+## 默认设置
+
+| 属性     | 说明                           | 类型                                                 | 默认值            |
+| -------- | ------------------------------ | ---------------------------------------------------- | ----------------- |
+| disabled | 按钮失效状态                   | boolean                                              | false             |
+| ghost    | 幽灵属性，使按钮背景透明       | boolean                                              | false             |
+| htmlType | 设置                           | button 原生的 type 值，可选值请参考 HTML 标准 string | button            |
+| icon     | 设置按钮的图标类型             | string                                               | -                 |
+| loading  | 设置按钮载入状态               | boolean                                              | { delay: number } | false |
+| shape    | 设置按钮形状，可选值为         | circle、 round 或者不设 string                       | -                 |
+| size     | 设置按钮大小，可选值为         | small large 或者不设 string                          | default           |
+| type     | 设置按钮类型，可选值为         | primary dashed danger link 或者不设 string           | default           |
+| block    | 将按钮宽度调整为其父宽度的选项 |                                                      | boolean false     |
+
+## 属性设置
+
+| 参数 | 说明     | 类型             | 可选值 | 默认值 |
+| ---- | -------- | ---------------- | ------ | ------ |
+| tips | 按钮提示 | String 、 Number | -      | -      |
+
+## 事件
+
+| 事件名 | 说明           | 回调值 |
+| ------ | -------------- | ------ |
+| @click | 点击按钮时触发 | event  |

@@ -57,6 +57,7 @@
     },
     "dependencies": {
         "dayjs": "^1.10.4",
+        "echarts": "^5.1.1",
         "highlight.js": "^9.15.8",
         "material-design-icons": "^3.0.1",
         "popper.js": "^1.15.0",

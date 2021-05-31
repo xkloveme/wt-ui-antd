@@ -1,5 +1,5 @@
-import vThrottle from './v-throttle'
+import vDebounce from './v-debounce'
 
 export const directives = {
-  vThrottle
+    debounce: vDebounce
 }
