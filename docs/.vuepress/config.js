@@ -45,16 +45,6 @@ module.exports = {
           text: 'Ads details here',
           image: 'https://cn.bing.com/th?id=OHR.LoughriggTarn_ZH-CN1404327665_1920x1080.jpg',
           link: 'https://github.com/xkloveme/wt-ui-antd'
-        },
-        {
-          text: 'Ads details here',
-          image: 'https://cn.bing.com/th?id=OHR.MetamorphicRocks_ZH-CN9753251368_1920x1080.jpg',
-          link: 'https://github.com/xkloveme/wt-ui-antd'
-        },
-        {
-          text: 'Ads details here',
-          image: 'https://cn.bing.com/th?id=OHR.KeichitsuCrocuse_ZH-CN1061292366_1920x1080.jpg',
-          link: 'https://github.com/xkloveme/wt-ui-antd'
         }
       ]
     },
