@@ -2,7 +2,7 @@ import WtButton from './wt-button'
 import WtTable from './wt-table'
 import WtEcharts from './wt-echarts'
 import WtRead from './wt-read/wt-read.vue'
-import Psd from './wt-read'
+import Read from './wt-read'
 import WtUpload from './wt-upload'
 import WtUploadFile from './wt-uploadFile'
 // import WtHeader from './wt-header'
@@ -68,7 +68,7 @@ const install = Vue => {
     Vue.prototype.$dayjs = dayjs
     Vue.prototype.$formatDate = (value, format) => formatDate(value, format)
     Vue.prototype.$formatDay = formatDay
-    Vue.prototype.$psd = Psd
+    Vue.prototype.$read = Read
 
     Vue.filter('datetime', value => (value ? formatDate(value, 'YYYY-MM-DD HH:mm:ss') : ''))
     Vue.filter('date', value => (value ? formatDate(value, 'YYYY-MM-DD') : '-'))

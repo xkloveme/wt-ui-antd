@@ -108,8 +108,9 @@ export default {
     methods: {
         initChart() {
             this.chart = echarts.init(this.$el, this.theme)
-            this.chart.on('click', param => {
-                this.$emit('onClick', param)
+            let self = this
+            this.chart.on('click', function(params) {
+                self.$emit('onClick', { ...params, event: undefined })
             })
             this.setOptions(this.chartOptions)
         },

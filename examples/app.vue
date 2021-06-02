@@ -4,6 +4,7 @@
             <ul>
 
                 <li><router-link to="/table">Table</router-link></li>
+                <li><router-link to="/tabs">tabs</router-link></li>
          
             </ul>
         </nav>
