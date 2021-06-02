@@ -3,7 +3,8 @@
 </template>
 
 <script>
-import * as echarts from 'echarts'
+// import * as echarts from 'echarts'
+import * as echarts from 'echarts/core'
 import resize from './resize.js'
 
 export default {
