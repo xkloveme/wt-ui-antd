@@ -13,14 +13,6 @@
     "ant-design"
   ],
   "author": "Feng L.H.",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/zpfz/vuepress-theme-antdocs.git"
-  },
-  "bugs": {
-    "url": "https://github.com/zpfz/vuepress-theme-antdocs/issues"
-  },
-  "homepage": "https://antdocs.vercel.app",
   "license": "MIT",
   "dependencies": {
     "ant-design-vue": "^1.7.4",

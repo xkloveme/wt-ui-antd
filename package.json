@@ -1,9 +1,9 @@
 {
     "name": "@wt/wt-ui-antd",
-    "version": "1.0.1",
+    "version": "1.0.0",
     "author": "xkloveme <xkloveme@gmail.com>",
     "private": false,
-    "license": "ISC",
+    "license": "MIT",
     "main": "dist/WTUI.common.js",
     "unpkg": "dist/WTUI.umd.min.js",
     "files": [
@@ -32,6 +32,14 @@
         "test": "vue-cli-service test:unit",
         "lint": "vue-cli-service lint"
     },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/wt-front-end/wt-ui-antd.git"
+    },
+    "bugs": {
+      "url": "https://github.com/wt-front-end/wt-ui-antd/issues"
+    },
+    "homepage": "https://wt-front-end.github.io/wt-ui-antd/",
     "husky": {
         "hooks": {
             "pre-commit": "lint-staged",
@@ -63,7 +71,7 @@
         "popper.js": "^1.15.0",
         "sass-loader": "^11.1.1",
         "style-resources-loader": "^1.3.3",
-        "vue": "2.6.12",
+        "vue": "2.6.13",
         "vuepress": "^1.8.2"
     },
     "devDependencies": {
@@ -97,6 +105,7 @@
         "vue-template-compiler": "2.6.12",
         "vuepress-plugin-leo-demo-block": "0.1.1"
     },
+   
     "eslintConfig": {
         "root": true,
         "env": {
