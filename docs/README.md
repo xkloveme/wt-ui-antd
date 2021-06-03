@@ -49,7 +49,7 @@ footerWrap:
 #  快速上手
 
 ``` bash
-npm install @wt/wt-ui-antd --save
+npm i @watone/wt-ui-antd --save
 // or
-yarn add @wt/wt-ui-antd --save
+yarn add @watone/wt-ui-antd --save
 ```
