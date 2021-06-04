@@ -1,6 +1,5 @@
 ---
 home: true
-heroImage: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3UJrWOYS_v_r7MoPsAOlHZkrU8yiynHJnLoIIGW_osHxNbLbw
 heroText: WT-UI-ANTD
 tagline: 华通云Vue2.0组件库
 actionBtn:
@@ -31,7 +30,7 @@ footerWrap:
     details: xkloveme
   - title: 项目文档
     link: https://github.com/wt-front-end/wt-ui-antd
-    details: 
+    details: 文档
 ---
 
 
@@ -57,7 +56,7 @@ yarn add @watone/wt-ui-antd --save
 ## 贡献者 ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
@@ -66,6 +65,10 @@ yarn add @watone/wt-ui-antd --save
 <table>
   <tr>
     <td align="center"><a href="https://www.jixiaokang.com/"><img src="https://avatars.githubusercontent.com/u/29595042?v=4" width="100px;" style="borderRadius:100%" alt=""/><br /><sub><b>superDragon</b></sub></a></td>
+    <td align="center"><a href="https://github.com/strawHatYz"><img src="https://avatars.githubusercontent.com/u/43464132?v=4" width="100px;" style="borderRadius:100%" alt=""/><br /><sub><b>strawHatYz</b></sub></a></td>
+    <td align="center"><a href="https://github.com/webdevBeginner"><img src="https://avatars.githubusercontent.com/u/37663902?v=4" width="100px;" style="borderRadius:100%" alt=""/><br /><sub><b>webdevBeginner</b></sub></a></td>
+    <td align="center"><a href="https://github.com/nanyou0316"><img src="https://avatars.githubusercontent.com/u/55910517?v=4" width="100px;" style="borderRadius:100%" alt=""/><br /><sub><b>nanyou0316</b></sub></a></td>
+    <td align="center"><a href="https://github.com/jingyongx"><img src="https://avatars.githubusercontent.com/u/74340084?v=4" width="100px;" style="borderRadius:100%" alt=""/><br /><sub><b>jingyongx</b></sub></a></td>
   </tr>
 </table>
 

@@ -9,8 +9,8 @@ module.exports = {
   base: '/wt-ui-antd/',
   theme: 'antdocs',
   themeConfig: {
-    repo: 'https://github.com/xkloveme/wt-ui-antd',
-    docsRepo: 'https://github.com/xkloveme/wt-ui-antd',
+    repo: 'https://github.com/wt-front-end/wt-ui-antd',
+    docsRepo: 'https://github.com/wt-front-end/wt-ui-antd',
     docsDir: 'docs',
     docsBranch: 'master',
     nav: [

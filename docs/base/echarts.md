@@ -505,7 +505,8 @@ export default {
                     }
                 ],
                 options: {
-                    animationDurationUpdate: 200,
+                    animation: true,
+                    animationDurationUpdate: 0,
                     xAxis: null,
                     yAxis: null,
                     legend: null
@@ -522,14 +523,14 @@ export default {
         let self = this
         function updateSeries(time, series, type) {
             var isCritical = Math.floor(time) === 0 || (type === 'second' && time === 1)
+            series.data[0].value = time
+            series.clockwise = true
             if (isCritical && timeUpdatedStatus[type] === true) {
                 timeUpdatedStatus[type] = false
                 series.data[0].value = 0
                 series.clockwise = true
                 self.chartOptions.options.animationDurationUpdate = 0
             }
-            series.data[0].value = time
-            series.clockwise = true
             if (time === 0) {
                 timeUpdatedStatus[type] = true
                 series.clockwise = false
@@ -669,18 +670,40 @@ export default {
 
 ## 插件列表
 
-|组件名称|插件名称|
-|--|--|
-| BarChart|TitleComponent|
-|LineChart|TooltipComponent|
-|LinesChart|ToolboxComponent|
-|PieChart|LegendComponent|
-|MapChart|VisualMapComponent|
-|TreeChart|TimelineComponent|
-|GraphChart|CalendarComponent|
-|RadarChart|GridComponent|
-|GaugeChart|-|
+| 组件名称   | 插件名称           |
+| ---------- | ------------------ |
+| BarChart   | TitleComponent     |
+| LineChart  | TooltipComponent   |
+| LinesChart | ToolboxComponent   |
+| PieChart   | LegendComponent    |
+| MapChart   | VisualMapComponent |
+| TreeChart  | TimelineComponent  |
+| GraphChart | CalendarComponent  |
+| RadarChart | GridComponent      |
+| GaugeChart | -                  |
 
 <br/>
 
-~~~~
+## 默认字段
+
+| 属性         | 说明                                           | 类型    | 默认值 |
+| ------------ | ---------------------------------------------- | ------- | ------ |
+| name         | 图表名称                                       | String  | 折线图 |
+| chartData    | 对应 option.series 字段,含有 name 和 data 字段 | Object  | -      |
+| options      | 对应配置项 option                              | Object  | -      |
+| option       | 同 options,权限更高                            | Object  | -      |
+| className    | 类名                                           | String  | chart  |
+| theme        | 主题(light、dark)可选                          | String  | light  |
+| width        | 宽                                             | String  | 100%   |
+| height       | 高                                             | String  | 400px  |
+| autoResize   | 自动缩放                                       | Boolean | true   |
+| chartOptions | 配置项(见下)                                   | Object  | -      |
+
+## chartOptions 值
+
+| 属性      | 说明                                           | 类型   | 默认值 |
+| --------- | ---------------------------------------------- | ------ | ------ |
+| name      | 图表名称                                       | String | 折线图 |
+| chartData | 对应 option.series 字段,含有 name 和 data 字段 | Object | -      |
+| options   | 对应配置项 option                              | Object | -      |
+| option    | 同 options,权限更高                            | Object | -      |

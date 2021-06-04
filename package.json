@@ -29,6 +29,7 @@
     "release:docs": "npm run build:docs && gh-pages -d docs/.vuepress/dist",
     "publish:npm": "git add -A && npm run build && release-it",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "generate": "yarn all-contributors generate",
     "test": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },

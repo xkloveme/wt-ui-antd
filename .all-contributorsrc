@@ -19,6 +19,42 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "strawHatYz",
+      "name": "strawHatYz",
+      "avatar_url": "https://avatars.githubusercontent.com/u/43464132?v=4",
+      "profile": "https://github.com/strawHatYz",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "webdevBeginner",
+      "name": "webdevBeginner",
+      "avatar_url": "https://avatars.githubusercontent.com/u/37663902?v=4",
+      "profile": "https://github.com/webdevBeginner",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "nanyou0316",
+      "name": "nanyou0316",
+      "avatar_url": "https://avatars.githubusercontent.com/u/55910517?v=4",
+      "profile": "https://github.com/nanyou0316",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "jingyongx",
+      "name": "jingyongx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/74340084?v=4",
+      "profile": "https://github.com/jingyongx",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "badgeTemplate": "[![All Contributors](https://img.shields.io/badge/all_contributors-<%= contributors.length %>-orange.svg?style=flat-square)](#contributors)",

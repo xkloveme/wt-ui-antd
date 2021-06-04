@@ -85,7 +85,7 @@ export default {
             deep: true,
             handler(val, oldVal) {
                 if (this.chart) {
-                    this.setOptions(val, true)
+                    this.setOptions(val, false)
                 } else {
                     this.chart.dispose()
                     this.chart = null
@@ -116,7 +116,7 @@ export default {
             })
             this.setOptions(this.chartOptions)
         },
-        setOptions({ chartData, chartName, options } = {}, status) {
+        setOptions({ chartData, chartName, options, option } = {}, status) {
             const series = []
             let legend = null
             let arr = []
@@ -182,7 +182,8 @@ export default {
                         type: 'value'
                     },
                     series: series,
-                    ...options
+                    ...options,
+                    ...option
                 },
                 status
             )
