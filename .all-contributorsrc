@@ -1,0 +1,14 @@
+{
+  "projectName": "@watone/wt-ui-antd",
+  "projectOwner": "xkloveme",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 300,
+  "commit": true,
+  "commitConvention": "atom",
+  "contributors": [],
+  "contributorsPerLine": 7
+}

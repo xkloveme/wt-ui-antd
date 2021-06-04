@@ -46,10 +46,16 @@ footerWrap:
 [![GitHub stars](https://img.shields.io/github/stars/wt-front-end/wt-ui-antd?style=for-the-badge)](https://github.com/wt-front-end/wt-ui-antd/stargazers)
 [![GitHub license](https://img.shields.io/github/license/wt-front-end/wt-ui-antd?style=for-the-badge)](https://github.com/wt-front-end/wt-ui-antd/blob/master/LICENSE)
 
-#  快速上手
+##  快速上手
 
 ``` bash
 npm i @watone/wt-ui-antd --save
 // or
 yarn add @watone/wt-ui-antd --save
 ```
+
+## 贡献者
+
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#contributors)
+<!-- ALL-CONTRIBUTORS-BADGE:END --> 
