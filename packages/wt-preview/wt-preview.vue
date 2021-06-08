@@ -1,6 +1,6 @@
 <!-- 图片显示 -->
 <template>
-    <div class="wt-preview" v-if="visible">
+    <div class="wt-preview" v-if="status">
         <div class="wt-preview-content">
             <header class="wt-preview-content-header wt-preview-content-tool">
                 <div>{{ imgLabel }}</div>
@@ -75,16 +75,17 @@ const oneOf = (value, validList) => {
 }
 export default {
     name: 'wt-preview',
-    components: {},
-    model: {
-        prop: 'visible',
-        even: 'close'
+    computed: {
+        status: {
+            get() {
+                return this.value
+            },
+            set(val) {
+                this.$emit('input', val)
+            }
+        }
     },
     props: {
-        // visible:{
-        //   type: Boolean,
-        //   default: false
-        // },
         // 是否自动切换
         autoplay: {
             type: Boolean,
@@ -108,11 +109,14 @@ export default {
         tool: {
             type: Boolean,
             default: true
+        },
+        value: {
+            type: Boolean,
+            default: false
         }
     },
     data() {
         return {
-            visible: false,
             imageDataList: [],
             imgSrc: '',
             imgLabel: '',
@@ -124,18 +128,6 @@ export default {
             uniquelyIdentifies: ''
         }
     },
-    // watch: {
-    //   visible:{
-    //     handler(nowData){
-    //       if(nowData){
-    //         console.log(nowData)
-    //       }else{
-    //         console.log(this.carouselTime)
-    //         clearInterval(this.carouselTime)
-    //       }
-    //     }
-    //   }
-    // },
     methods: {
         handleGetValue(nowData) {
             this.$nextTick(() => {
@@ -155,7 +147,6 @@ export default {
                     }
                     return item
                 })
-                this.visible = true
                 if (this.initialIndex <= this.imageDataList.length - 1) {
                     this.imgSrc = this.imageDataList[this.initialIndex].url
                     this.imgLabel = this.imageDataList[this.initialIndex].label
@@ -164,11 +155,15 @@ export default {
                     ].uniquelyIdentifies
                 } else {
                     console.error('character “initialIndex” out of range ')
+                    return
                 }
 
                 this.handleKeyboard()
                 if (this.imageDataList.length && this.imageDataList.length > 1) {
                     this.visibleRight = true
+                    if (this.initialIndex > 0) {
+                        this.visibleLeft = true
+                    }
                     this.handleCarousel()
                 }
             } else {
@@ -279,12 +274,11 @@ export default {
         },
         onMouseover() {
             clearInterval(this.carouselTime)
-            // this.$refs.imgListRef.style.overflowY = 'auto'
         },
         onMouseout() {
             this.handleCarousel()
-            // this.$refs.imgListRef.style.overflowY = ''
         },
+
         onCheckImage() {
             this.handleFileLink(this.imgSrc)
         },
@@ -345,10 +339,19 @@ export default {
             })
         },
         onClickClose() {
+            this.$emit('input', false)
             this.$emit('handleClose', false)
-            this.visible = false
+            this.visibleLeft = false
+            this.visibleRight = false
+            this.imageDataList = []
+            this.imgSrc = ''
+            this.imgLabel = ''
+            this.uniquelyIdentifies = ''
+            this.scrollLeft = 0
+            this.oldScroll = 0
             this.handleDataEmpty()
             clearInterval(this.carouselTime)
+            this.carouselTime = null
         },
         // 轮播
         handleCarousel() {
@@ -387,6 +390,7 @@ export default {
     background-color: #2b2b2b;
     user-select: none;
     color: #cacaca;
+
     &-content {
         // position: relative;
         height: 100%;
