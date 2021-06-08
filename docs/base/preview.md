@@ -27,7 +27,6 @@
     },
     methods: {
       onClickCheck() {
-        console.log(this.$refs)
         this.visible = true
         this.$refs.previewRef.handleOpen(this.images)
       }
@@ -205,6 +204,7 @@
 
 | 属性     | 说明                           | 类型                                                 | 默认值            |
 | -------- | ------------------------------ | ---------------------------------------------------- | ----------------- |
+| value | 显示preview组件，可以使用 v-model 双向绑定数据打开 | boolean                            | false              |
 | autoplay | 是否自动切换                     | boolean                                              | false             |
 |interval  | 自动切换间隔时间                  |number                                                | 3000              |
 | initialIndex | 初始状态激活的preview的索引，从 0 开始  | number、string                               | 0                 |
