@@ -23,3 +23,25 @@
     > 享受 Vue + webpack 的开发体验，在 Markdown 中使用 Vue 组件，同时可以使用 Vue 来开发自定义主题。
 -   _高性能_
     > VuePress 为每个页面预渲染生成静态的 HTML，同时在页面被加载的时候，将作为 SPA 运行。
+
+## 贡献者 ✨
+
+
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://www.jixiaokang.com/"><img src="https://avatars.githubusercontent.com/u/29595042?v=4" width="100px;" style="borderRadius:100%" alt=""/><br /><sub><b>superDragon</b></sub></a></td>
+    <td align="center"><a href="https://github.com/strawHatYz"><img src="https://avatars.githubusercontent.com/u/43464132?v=4" width="100px;" style="borderRadius:100%" alt=""/><br /><sub><b>strawHatYz</b></sub></a></td>
+    <td align="center"><a href="https://github.com/webdevBeginner"><img src="https://avatars.githubusercontent.com/u/37663902?v=4" width="100px;" style="borderRadius:100%" alt=""/><br /><sub><b>webdevBeginner</b></sub></a></td>
+    <td align="center"><a href="https://github.com/nanyou0316"><img src="https://avatars.githubusercontent.com/u/55910517?v=4" width="100px;" style="borderRadius:100%" alt=""/><br /><sub><b>nanyou0316</b></sub></a></td>
+    <td align="center"><a href="https://github.com/jingyongx"><img src="https://avatars.githubusercontent.com/u/74340084?v=4" width="100px;" style="borderRadius:100%" alt=""/><br /><sub><b>jingyongx</b></sub></a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->

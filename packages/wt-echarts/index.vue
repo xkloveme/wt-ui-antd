@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import * as echarts from 'echarts'
+import echarts from './echarts.js'
 import resize from './resize.js'
 
 export default {
@@ -85,11 +85,13 @@ export default {
             deep: true,
             handler(val, oldVal) {
                 if (this.chart) {
+                    this.setOptions(val, false)
+                } else {
                     this.chart.dispose()
                     this.chart = null
+                    this.initChart()
+                    this.setOptions(val)
                 }
-                this.initChart()
-                this.setOptions(val)
             }
         }
     },
@@ -108,12 +110,13 @@ export default {
     methods: {
         initChart() {
             this.chart = echarts.init(this.$el, this.theme)
-            this.chart.on('click', param => {
-                this.$emit('onClick', param)
+            let self = this
+            this.chart.on('click', function(params) {
+                self.$emit('onClick', { ...params, event: undefined })
             })
             this.setOptions(this.chartOptions)
         },
-        setOptions({ chartData, chartName, options } = {}) {
+        setOptions({ chartData, chartName, options, option } = {}, status) {
             const series = []
             let legend = null
             let arr = []
@@ -132,54 +135,58 @@ export default {
             if (arr.length) {
                 legend = { data: arr }
             }
-            this.chart.setOption({
-                aria: {
-                    enabled: this.aria
-                },
-                tooltip: {
-                    trigger: 'axis',
-                    axisPointer: {
-                        lineStyle: {
-                            color: {
-                                type: 'linear',
-                                x: 0,
-                                y: 0,
-                                x2: 0,
-                                y2: 1,
-                                colorStops: [
-                                    {
-                                        offset: 0,
-                                        color: 'rgba(0, 255, 233,0)'
-                                    },
-                                    {
-                                        offset: 0.5,
-                                        color: 'rgba(255, 255, 255,1)'
-                                    },
-                                    {
-                                        offset: 1,
-                                        color: 'rgba(0, 255, 233,0)'
-                                    }
-                                ],
-                                global: false
+            this.chart.setOption(
+                {
+                    aria: {
+                        enabled: this.aria
+                    },
+                    tooltip: {
+                        trigger: 'axis',
+                        axisPointer: {
+                            lineStyle: {
+                                color: {
+                                    type: 'linear',
+                                    x: 0,
+                                    y: 0,
+                                    x2: 0,
+                                    y2: 1,
+                                    colorStops: [
+                                        {
+                                            offset: 0,
+                                            color: 'rgba(0, 255, 233,0)'
+                                        },
+                                        {
+                                            offset: 0.5,
+                                            color: 'rgba(255, 255, 255,1)'
+                                        },
+                                        {
+                                            offset: 1,
+                                            color: 'rgba(0, 255, 233,0)'
+                                        }
+                                    ],
+                                    global: false
+                                }
                             }
                         }
-                    }
-                },
-                legend: legend,
-                xAxis: {
-                    type: 'category',
-                    boundaryGap: false,
-                    axisLine: {
-                        show: false
                     },
-                    data: chartName
+                    legend: legend,
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        axisLine: {
+                            show: false
+                        },
+                        data: chartName
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: series,
+                    ...options,
+                    ...option
                 },
-                yAxis: {
-                    type: 'value'
-                },
-                series: series,
-                ...options
-            })
+                status
+            )
         }
     }
 }
