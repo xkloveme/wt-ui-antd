@@ -10,6 +10,7 @@ import WtCard from './wt-card'
 import WtForm from './wt-form/index.vue'
 // import WtColor from './wt-color/index.vue'
 import WtSearch from './wt-search/index.vue'
+import WtPreview from './wt-preview'
 import { directives } from './directive/index.js'
 import dayjs from 'dayjs'
 const formatDate = (value, format = 'YYYY-MM-DD HH:mm:ss') => {
@@ -44,7 +45,8 @@ const components = [
     WtForm,
     WtSearch,
     WtRead,
-    WtUploadFile
+    WtUploadFile,
+    WtPreview
 ]
 const install = Vue => {
     // 遍历注册组件
