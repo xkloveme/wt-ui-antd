@@ -31,6 +31,7 @@ module.exports = {
         children: [
           'base/button.md',
           'base/echarts.md',
+          'base/preview.md'
           // 'base/link.md',
           // 'base/icon.md',
         ],
