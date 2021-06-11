@@ -1,6 +1,7 @@
 # wt-ui-antd
 
-基于vue2.0和antd的UI组件库基于vue2.0和antd的UI组件库
+基于vue2.0
+和antd的UI组件库基于vue2.0和antd的UI组件库
 
 <h1 align="center">
 <h1>WT-UI-ANTD</h1>
