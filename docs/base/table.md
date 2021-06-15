@@ -86,6 +86,92 @@ export default {
 
 :::
 
+## 筛选与排序
+
+对某一列数据进行筛选，使用列的 `filters` 属性来指定需要筛选菜单的列，`onFilter` 用于筛选当前数据，`filterMultiple` 用于指定多选和单选。
+
+对某一列数据进行排序，通过指定列的 `sorter` 函数即可启动排序按钮。`sorter: function(rowA, rowB) { ... }`， rowA、rowB 为比较的两个行数据。
+
+`sortDirections: ['ascend' | 'descend']` 改变每列可用的排序方式，切换排序时按数组内容依次切换，设置在 table props 上时对所有列生效。
+
+使用 `defaultSortOrder` 属性，设置列的默认排序顺序。
+
+:::demo
+
+```vue
+<template>
+    <wt-table :columns="columns" :tableData="tableData" @change="handleChange">
+        <template slot="sex" slot-scope="text, record">{{ ['女', '男'][text] }}</template>
+    </wt-table>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            columns: [
+                {
+                    dataIndex: 'name',
+                    title: '姓名',
+                    sorter: (a, b) => a.name.length - b.name.length,
+                    sortDirections: ['descend']
+                },
+                {
+                    dataIndex: 'sex',
+                    title: '性别',
+                    scopedSlots: { customRender: 'sex' },
+                    filters: [
+                        {
+                            text: '女',
+                            value: 0
+                        },
+                        {
+                            text: '男',
+                            value: 1
+                        }
+                    ],
+                    onFilter: (value, record) => record.sex === value
+                },
+                {
+                    dataIndex: 'age',
+                    title: '年龄',
+                    sorter: (a, b) => a.age - b.age,
+                    defaultSortOrder: 'descend'
+                },
+                {
+                    dataIndex: 'address',
+                    title: '地址',
+                    filters: [
+                        {
+                            text: '杭州',
+                            value: '杭州'
+                        },
+                        {
+                            text: '临安',
+                            value: '临安'
+                        }
+                    ],
+                    onFilter: (value, record) => record.address.indexOf(value) !== -1,
+                    filterMultiple: false
+                }
+            ],
+            tableData: [
+                { id: 1, name: '李四', sex: 1, age: 30, address: '浙江杭州' },
+                { id: 2, name: '张三三', sex: 0, age: 20, address: '浙江杭州' },
+                { id: 3, name: '王五', sex: 0, age: 21, address: '浙江临安' }
+            ]
+        }
+    },
+    methods: {
+        handleChange(pagination, filters, sorter) {
+            console.log(pagination, filters, sorter)
+        }
+    }
+}
+</script>
+```
+
+:::
+
 ## 嵌套子表格
 
 :::demo
@@ -321,6 +407,7 @@ columns: [
 ## Column
 
 列描述数据对象，是 columns 中的一项，Column 使用相同的 API。
+[快速生成 columns 小工具](https://www.jixiaokang.com/black-tool/)
 
 | 属性                                                                                           | 说明                                                                                                                                                  | 类型                                                                     | 默认值   |
 | ---------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | -------- |
