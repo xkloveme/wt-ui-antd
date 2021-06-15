@@ -48,6 +48,10 @@ export default {
         callback: {
             type: Function,
             default: null
+        },
+        pagination: {
+            type: [Object, Boolean],
+            default: () => ({})
         }
     },
     data() {
@@ -56,13 +60,14 @@ export default {
             pageNum: 1,
             pageSize: 10,
             data: [],
-            pagination: {
+            newPagination: {
                 total: 10,
                 current: 1,
                 pageSize: 10,
                 'show-total': total => `共 ${total} 条记录`,
                 'show-size-changer': !this.isDataV,
-                'show-quick-jumper': !this.isDataV
+                'show-quick-jumper': !this.isDataV,
+                ...this.pagination
             }
         }
     },
@@ -71,7 +76,7 @@ export default {
             this.getData()
         } else if (this.tableData.length > 0) {
             this.data = this.tableData
-            this.pagination.total = this.tableData.length
+            this.newPagination.total = this.tableData.length
         }
     },
     destroyed() {
@@ -86,7 +91,7 @@ export default {
                 // 特别注意，不能用箭头函数，箭头函数，this指向全局
                 this.pageNum = 1
                 this.pageSize = 10
-                this.pagination.current = 1
+                this.newPagination.current = 1
             },
             deep: true
         }
@@ -129,7 +134,7 @@ export default {
             }
             this.api(this.isNeedPageInfo ? params : this.params)
                 .then(data => {
-                    this.pagination.total = data.total
+                    this.newPagination.total = data.total
                     this.data = data.rows || data.data || []
                     this.loading = false
                 })
@@ -155,8 +160,8 @@ export default {
                 this.loading = true
                 this.$nextTick(() => {
                     this.data = this.tableData
-                    this.pagination.total = this.tableData.length
-                    this.pagination.hideOnSinglePage = true
+                    this.newPagination.total = this.tableData.length
+                    this.newPagination.hideOnSinglePage = true
                     this.loading = false
                 })
             }
@@ -169,8 +174,8 @@ export default {
         refresh(pageNum = 1, pageSize = 10) {
             this.pageNum = pageNum
             this.pageSize = pageSize
-            this.pagination.current = pageNum
-            this.pagination.pageSize = pageSize
+            this.newPagination.current = pageNum
+            this.newPagination.pageSize = pageSize
             this.$nextTick(() => {
                 this.getData()
             })
@@ -190,11 +195,14 @@ export default {
         return (
             <div class={this.isDataV ? 'wt-table read-table-content' : 'wt-table'}>
                 <a-table
+                    rowClassName={(record, index) =>
+                        this.isDataV ? '' : index % 2 ? 'stripe' : ''
+                    }
                     loading={this.isDataV ? false : this.loading}
-                    pagination={this.isNeedPageInfo ? this.pagination : false}
+                    pagination={this.pagination === false ? false : this.newPagination}
                     dataSource={this.data}
                     columns={this.newColumn}
-                    rowKey="id"
+                    rowKey={() => (~~(Math.random() * (1 << 30))).toString(36)}
                     bordered={this.bordered}
                     {...{ scopedSlots: { ...this.$scopedSlots } }}
                     {...{
@@ -215,27 +223,33 @@ export default {
 }
 </script>
 <style lang="less">
+.stripe {
+    background: #f6f8fa;
+}
 .read-table-content {
     padding: 0.2rem;
-    /deep/.ant-table {
-        font-size: 0.2rem;
+    background: #022062;
+
+    .ant-table {
+        font-size: 0.2rem !important;
         table {
             border: none;
         }
     }
-    /deep/.ant-table-thead > tr > th {
+    .ant-table-thead > tr > th {
         background: transparent;
         color: #89d5f6;
         border: 0;
     }
-    /deep/.ant-table-placeholder {
+    .ant-table-placeholder {
         background: transparent !important;
         border: 0 !important;
         .ant-empty-description {
             color: #fff;
         }
     }
-    /deep/.ant-table-tbody > tr {
+
+    .ant-table-tbody > tr {
         &:nth-child(2n-1) {
             background: #022675;
         }
@@ -245,25 +259,29 @@ export default {
             }
         }
     }
-    /deep/.ant-table-tbody > tr > td {
+    .ant-table-tbody > tr > td {
         color: #fff;
         background: none;
         border: 0;
     }
-    /deep/.ant-table-pagination.ant-pagination {
+    .ant-table-pagination.ant-pagination {
         color: #fff;
     }
-    /deep/.ant-pagination-prev .ant-pagination-item-link {
+    .ant-pagination-prev .ant-pagination-item-link {
         background: #022676;
         color: #fff;
         border-color: #022676;
     }
-    /deep/.ant-pagination-next .ant-pagination-item-link {
+    .ant-pagination-next .ant-pagination-item-link {
         background: #022676;
         color: #fff;
         border-color: #022676;
     }
-    /deep/.ant-pagination-item {
+    .ant-pagination-simple .ant-pagination-simple-pager input {
+        background: #022676;
+        border-color: #022062;
+    }
+    .ant-pagination-item {
         background: #022676;
         color: #fff;
         border-color: #022676;
@@ -276,6 +294,20 @@ export default {
                 color: #fff;
             }
         }
+    }
+    //在鼠标悬浮时背景色展示在当前项非当前行
+    .ant-table-tbody > tr > td {
+        background: rgba(255, 255, 255, 0) !important;
+    }
+    .ant-table-tbody > tr > td:hover {
+        background: rgb(255, 255, 255) !important;
+    }
+    //去除鼠标悬浮的背景色
+    .ant-table-tbody > tr > td {
+        background: rgba(255, 255, 255, 0) !important;
+    }
+    .ant-table-tbody > tr > td:hover {
+        background: rgba(255, 255, 255, 0) !important;
     }
 }
 </style>
