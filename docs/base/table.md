@@ -172,7 +172,7 @@ export default {
 
 :::
 
-## 嵌套子表格
+## 树形数据展示
 
 :::demo
 
@@ -242,6 +242,57 @@ export default {
                     ]
                 }
             ]
+        }
+    }
+}
+</script>
+```
+
+:::
+
+## 大屏数据 dataV
+
+::: demo
+
+```vue
+<template>
+    <wt-table
+        :columns="columns"
+        :api="$api.getData"
+        :params="queryParams"
+        :isDataV="true"
+        :pagination="pagination"
+    >
+        <template slot="sex" slot-scope="text, record">{{ ['女', '男'][text] }}</template>
+    </wt-table>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            columns: [
+                {
+                    dataIndex: 'name',
+                    title: '姓名'
+                },
+                {
+                    dataIndex: 'sex',
+                    title: '性别',
+                    scopedSlots: { customRender: 'sex' }
+                },
+                {
+                    dataIndex: 'age',
+                    title: '年龄'
+                }
+            ],
+            queryParams: {
+                name: '',
+                age: '',
+                sex: ''
+            },
+            pagination: {
+                simple: true
+            }
         }
     }
 }
@@ -361,21 +412,24 @@ columns: [
 
 ### 默认属性
 
-| 属性           | 说明                                                      | 类型                             | 默认值    |
-| -------------- | --------------------------------------------------------- | -------------------------------- | --------- |
-| isNeedPageInfo | 是否需要分页器，接口请求是否添加参数 `pageSize` `pageNum` | boolean                          | true      |
-| autoload       | 是否自动加载一次数据，调用`api`接口或填充 `tableData`     | boolean                          | true      |
-| isDataV        | 是否为大屏展示，style 样式不同，如背景色、文字颜色等      | boolean                          | false     |
-| showHeader     | 是否显示表头                                              | boolean                          | true      |
-| size           | 表格大小                                                  | `default | middle | small`       | `default` |
-| rowKey         | 表格行 `key` 的取值，可以是字符串或一个函数               | `string|Function(record):string` | 'id'      |
+| 属性           | 说明                                                                               | 类型                             | 默认值                                                |
+| -------------- | ---------------------------------------------------------------------------------- | -------------------------------- | ----------------------------------------------------- |
+| isNeedPageInfo | 是否需要分页器，接口请求是否添加参数 `pageSize` `pageNum`                          | boolean                          | true                                                  |
+| autoload       | 是否自动加载一次数据，调用`api`接口或填充 `tableData`                              | boolean                          | true                                                  |
+| isDataV        | 是否为大屏展示，style 样式不同，如背景色、文字颜色等                               | boolean                          | false                                                 |
+| showHeader     | 是否显示表头                                                                       | boolean                          | true                                                  |
+| size           | 表格大小                                                                           | `default | middle | small`       | `default`                                             |
+| rowKey         | 表格行 `key` 的取值，可以是字符串或一个函数                                        | `string|Function(record):string` | 随机数 `(~~(Math.random() * (1 << 30))).toString(36)` |
+| pagination     | 分页器，参考[配置项](#pagination)或 pagination 文档，设为 false 时不展示和进行分页 | object                           |                                                       |
 
 ### 属性设置
 
 | 属性                   | 说明                                                                                      | 类型                                                                                                                             | 默认值                                                                   |
 | ---------------------- | ----------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
 | tableData              | 数据数组                                                                                  | `any[]`                                                                                                                          |                                                                          |
-| api                    | 查询数据 api 接口                                                                         | function                                                                                                                         |                                                                          |
+| api                    | 查询数据 api 接口                                                                         | function                                                                                                                         |
+| pollInterval           | 循环调用 `api` 接口时间间隔，默认不循环调用                                                                   | number                                                                                                                           |                                                                          |
+|  |
 | childrenColumnName     | 指定树形结构的列名                                                                        | string[]                                                                                                                         | children                                                                 |
 | columns                | 表格列的配置描述，具体项见下表                                                            | array                                                                                                                            | -                                                                        |
 | components             | 覆盖默认的 table 元素                                                                     | object                                                                                                                           | -                                                                        |
@@ -403,6 +457,13 @@ columns: [
 | change                                        | 分页、排序、筛选变化时触发 | `Function(pagination, filters, sorter, { currentDataSource })` |
 | expand                                        | 点击展开图标时触发         | `Function(expanded, record)`                                   |
 | expandedRowsChange</br>update:expandedRowKeys | 展开的行变化时触发         | `Function(expandedRowKeys)`                                    |
+
+### ref 方法
+
+| 方法名  | 说明                                                                           | 参数                                    |
+| ------- | ------------------------------------------------------------------------------ | --------------------------------------- |
+| getData | 刷新获取当前页数据                                                             | -                                       |
+| refresh | 刷新获取指定页 `pageNum` 指定个数 `pageSize` 数据，默认获取第 1 页的 10 条数据 | `Function(pageNum = 1, pageSize = 10 )` |
 
 ## Column
 
@@ -435,6 +496,14 @@ columns: [
 | onFilter                                                                                       | 本地模式下，确定筛选的运行函数, 使用 template 或 jsx 时作为 filter 事件使用                                                                           | Function                                                                 | -        |
 | onFilterDropdownVisibleChange<br>@filterDropdownVisibleChange<br>@update:filterDropdownVisible | 自定义筛选菜单可见 filterDropdownVisible 变化时调用，使用 template 或 jsx 时作为 filterDropdownVisibleChange 或 update:filterDropdownVisible 事件使用 | function(visible) {}                                                     | -        |
 | slots                                                                                          | 使用 columns 时，可以通过该属性配置支持 slot 的属性，如 `slots: { filterIcon: 'XXX'}`                                                                 | object                                                                   | -        |
+
+## Pagination
+
+| 属性     | 说明               | 类型                        | 默认值     |
+| -------- | ------------------ | --------------------------- | ---------- |
+| position | 指定分页显示的位置 | `'top' | 'bottom' | 'both'` | `'bottom'` |
+
+更多配置项，请查看 [Pagination](https://www.antdv.com/components/pagination/#API)。
 
 ## rowSelection
 
