@@ -32,7 +32,8 @@ module.exports = {
           'base/button.md',
           'base/echarts.md',
           'base/preview.md',
-          'base/form.md'
+          'base/form.md',
+          'base/table.md',
           // 'base/link.md',
           // 'base/icon.md',
         ],
