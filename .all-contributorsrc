@@ -55,6 +55,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "autumn-ohh",
+      "name": "autumn-ohh",
+      "avatar_url": "https://avatars.githubusercontent.com/u/35619392?v=4",
+      "profile": "https://github.com/autumn-ohh",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "badgeTemplate": "[![All Contributors](https://img.shields.io/badge/all_contributors-<%= contributors.length %>-orange.svg?style=flat-square)](#contributors)",

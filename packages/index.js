@@ -4,7 +4,7 @@ import WtEcharts from './wt-echarts'
 import WtRead from './wt-read/wt-read.vue'
 import Read from './wt-read'
 import WtUpload from './wt-upload'
-import WtUploadFile from './wt-uploadFile'
+// import WtUploadFile from './wt-uploadFile'
 // import WtHeader from './wt-header'
 import WtCard from './wt-card'
 import WtForm from './wt-form/index.vue'
@@ -45,7 +45,6 @@ const components = [
     WtForm,
     WtSearch,
     WtRead,
-    WtUploadFile,
     WtPreview
 ]
 const install = Vue => {

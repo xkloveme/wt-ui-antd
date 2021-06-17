@@ -47,16 +47,16 @@ footerWrap:
 
 ##  快速上手
 
-``` bash
+<res>
 npm i @watone/wt-ui-antd --save
 // or
 yarn add @watone/wt-ui-antd --save
-```
+</res>
 
 ## 贡献者 ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
@@ -69,6 +69,7 @@ yarn add @watone/wt-ui-antd --save
     <td align="center"><a href="https://github.com/webdevBeginner"><img src="https://avatars.githubusercontent.com/u/37663902?v=4" width="100px;" style="borderRadius:100%" alt=""/><br /><sub><b>webdevBeginner</b></sub></a></td>
     <td align="center"><a href="https://github.com/nanyou0316"><img src="https://avatars.githubusercontent.com/u/55910517?v=4" width="100px;" style="borderRadius:100%" alt=""/><br /><sub><b>nanyou0316</b></sub></a></td>
     <td align="center"><a href="https://github.com/jingyongx"><img src="https://avatars.githubusercontent.com/u/74340084?v=4" width="100px;" style="borderRadius:100%" alt=""/><br /><sub><b>jingyongx</b></sub></a></td>
+    <td align="center"><a href="https://github.com/autumn-ohh"><img src="https://avatars.githubusercontent.com/u/35619392?v=4" width="100px;" style="borderRadius:100%" alt=""/><br /><sub><b>autumn-ohh</b></sub></a></td>
   </tr>
 </table>
 
