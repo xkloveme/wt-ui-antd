@@ -117,14 +117,12 @@ new Vue({
 <!-- markdownlint-disable -->
 <table>
   <tr>
-
     <td align="center"><a href="https://www.jixiaokang.com/"><img src="https://avatars.githubusercontent.com/u/29595042?v=4" width="100px;" style="borderRadius:100%" alt=""/><br /><sub><b>superDragon</b></sub></a></td>
     <td align="center"><a href="https://github.com/strawHatYz"><img src="https://avatars.githubusercontent.com/u/43464132?v=4" width="100px;" style="borderRadius:100%" alt=""/><br /><sub><b>strawHatYz</b></sub></a></td>
     <td align="center"><a href="https://github.com/webdevBeginner"><img src="https://avatars.githubusercontent.com/u/37663902?v=4" width="100px;" style="borderRadius:100%" alt=""/><br /><sub><b>webdevBeginner</b></sub></a></td>
     <td align="center"><a href="https://github.com/nanyou0316"><img src="https://avatars.githubusercontent.com/u/55910517?v=4" width="100px;" style="borderRadius:100%" alt=""/><br /><sub><b>nanyou0316</b></sub></a></td>
     <td align="center"><a href="https://github.com/jingyongx"><img src="https://avatars.githubusercontent.com/u/74340084?v=4" width="100px;" style="borderRadius:100%" alt=""/><br /><sub><b>jingyongx</b></sub></a></td>
     <td align="center"><a href="https://github.com/autumn-ohh"><img src="https://avatars.githubusercontent.com/u/35619392?v=4" width="100px;" style="borderRadius:100%" alt=""/><br /><sub><b>autumn-ohh</b></sub></a></td>
-
   </tr>
 </table>
 
