@@ -14,10 +14,10 @@
 </template>
 
 <script>
-import formCreate from '@form-create/ant-design-vue'
+// import formCreate from '@form-create/ant-design-vue'
 export default {
     name: 'wt-form',
-    components: { formCreate: formCreate.$form() },
+    // components: { formCreate: formCreate.$form() },
     props: {
         value: {
             type: Object,
