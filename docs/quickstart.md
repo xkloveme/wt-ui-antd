@@ -82,7 +82,7 @@ new Vue({
     new Vue({
         el: '#app',
         data: {
-            value: 'wt-antd'
+            value: 'WT-UI-ANTD'
         }
     })
 </script>

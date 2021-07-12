@@ -10,7 +10,7 @@
   <a href="https://www.npmjs.com/package/@wt/wt-ui-antd"><img src="https://img.shields.io/badge/npmjs-WTUIAntd-red.svg" alt="npmjs"></a>
   <br>
 
-    <a href="https://996.icu"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu"></a>
+  <a href="https://996.icu"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu"></a>
 
   <a href="https://github.com/xkloveme/wt-ui-antd"><img src="https://img.shields.io/badge/WTUIAntd-doc-blue.svg" alt="docs"></a>
    <a href="https://github.com/xkloveme/wt-ui-antd"><img src="https://img.shields.io/badge/github-lib-darkslategrey.svg" alt="github"></a>
@@ -102,7 +102,7 @@ new Vue({
     new Vue({
         el: '#app',
         data: {
-            value: 'wt-antd'
+            value: 'WT-UI-ANTD'
         }
     })
 </script>
