@@ -2,6 +2,7 @@ const path = require('path')
 const resolve = dir => path.join(__dirname, dir)
 
 module.exports = {
+  productionSourceMap:false,
     chainWebpack: config => {
         // set alias
         config.resolve.alias.set('@packages', resolve('packages'))
