@@ -1,6 +1,9 @@
 # Form
 
-> 该组件采用[ant-design-vue](http://form-create.com/v2/ant-design-vue/)作为基础组件,兼容市面大多数UI框架[在线体验](http://www.form-create.com/designer/)
+> 该组件采用[ant-design-vue](http://form-create.com/v2/ant-design-vue/)作为基础组件,
+兼容市面大多数UI框架[在线体验](http://www.form-create.com/designer/)
+
+![](http://form-create.com/img/rule-info.png)
 
 ## 基本使用
 
@@ -38,6 +41,7 @@
 ## 栅格布局规则
 
 ::: demo
+
 ```vue
 <template>
   <div>
@@ -585,29 +589,153 @@
 
 :::
 
+## 校验规则
 
-## 默认设置
+::: demo
+
+```vue
+<template>
+  <div>
+    <res v-model="formData">formData:</res>
+    <wt-form :rule="rule" v-model="formData" @submit="handleSubmit"></wt-form>
+  </div>
+</template>
+<script>
+  export default {
+    data() {
+      return {
+        formData: { field1: '' },
+        rule: [
+          {
+            type: 'input',
+            field: 'field1',
+            title: '商品',
+            value: 'aaa',
+            validate: [
+              { required: true, message: '请输入商品名称', trigger: 'blur' },
+            ]
+          },
+          {
+            type: 'InputNumber', field: 'field2', title: '价格', value: "",
+            validate: [
+              { required: true, message: '请输入商品价格', trigger: 'blur' },
+              { type: 'number', min: 10, max: 100, required: true, message: '最小为10,最大为100' },
+            ]
+          },
+          {
+            "type": "select",
+            "field": "if65r86uz3pt",
+            "title": "选择器",
+            "info": "",
+            "effect": {
+              "fetch": ""
+            },
+            "options": [
+              {
+                "value": "1",
+                "label": "选项1"
+              },
+              {
+                "value": "2",
+                "label": "选项2"
+              }
+            ],
+            "_fc_drag_tag": "select",
+            "hidden": false,
+            "display": true
+          },
+          {
+            type: 'checkbox',
+            field: 'label',
+            title: '标签',
+            value: [],
+            options: [
+              { label: '好用', value: 0 },
+              { label: '快速', value: 1 },
+              { label: '高效', value: 2 },
+              { label: '全能', value: 3 },
+            ],
+            validate: [{ type: 'array', min: 3, required: true, message: '最少选择3个' }]
+          },
+          {
+            type: "input",
+            field: 'unique',
+            title: "简介",
+            validate: [
+              {
+                validator: (rule, val, d) => {
+                  val && !/^[a-z]+$/.test(val) ? d(true) : d()
+                }, message: "只能填写 a-z"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    methods: {
+      handleSubmit(data) {
+        console.log(data)
+      }
+    }
+  }
+</script>
+```
+
+:::
+
+## 配置规则
+
+可通过 col 配置项设置布局规则
 
 | 属性 | 说明 | 类型 | 默认值 |
 | -------- | ------------------------------ | ---------------------------------------------------- | ----------------- |
-| disabled | 按钮失效状态 | boolean | false |
-| ghost | 幽灵属性，使按钮背景透明 | boolean | false |
-| htmlType | 设置 | button 原生的 type 值，可选值请参考 HTML 标准 string | button |
-| icon | 设置按钮的图标类型 | string | - |
-| loading | 设置按钮载入状态 | boolean | { delay: number } | false |
-| shape | 设置按钮形状，可选值为 | circle、 round 或者不设 string | - |
-| size | 设置按钮大小，可选值为 | small large 或者不设 string | default |
-| type | 设置按钮类型，可选值为 | primary dashed danger link 或者不设 string | default |
-| block | 将按钮宽度调整为其父宽度的选项 | | boolean false |
+|offset|	栅格左侧的间隔格数，间隔内不可以有栅格	|number	| 0|
+|order|	栅格顺序，flex 布局模式下有效	|number	| 0|
+|pull|	栅格向左移动格数	|number	| 0|
+|push|	栅格向右移动格数	|number	| 0|
+|span|	栅格占位格数，为 0 时相当于 display: none	|number	| -|
+|xs|	<576px 响应式栅格，可为栅格数或一个包含其他属性的对象|number、object	| -|
+|sm|	≥576px 响应式栅格，可为栅格数或一个包含其他属性的对象|number、object	| -|
+|md|	≥768px 响应式栅格，可为栅格数或一个包含其他属性的对象|number、object	| -|
+|lg|	≥992px 响应式栅格，可为栅格数或一个包含其他属性的对象|number、object	| -|
+|xl|	≥1200px 响应式栅格，可为栅格数或一个包含其他属性的对象|	number、object	| -|
+|xxl|	≥1600px 响应式栅格，可为栅格数或一个包含其他属性的对象|	number、object	| -|
 
-## 属性设置
+## 构成
 
-| 参数 | 说明 | 类型 | 可选值 | 默认值 |
-| ---- | -------- | ---------------- | ------ | ------ |
-| tips | 按钮提示 | String 、 Number | - | - |
+> 全局配置中额外支持一下配置项
+
+- form：表单整体显示规则配置
+- row：表单组件布局配置
+- submitBtn：提交按钮样式配置
+- resetBtn：重置按钮样式配置
+- info：组件提示消息配置
+- wrap: 配置FormItem v2.5.0+
+
+## api
+
+> [form-create-api](http://form-create.com/v2/instance.html#%E8%8E%B7%E5%8F%96api)
+
+## 内置组件
+- Hidden 隐藏字段
+- Input 输入框
+- InputNumber 数字输入框
+- AutoComplete 自动生成
+- Radio 单选框
+- Checkbox 多选框
+- Select 下拉选择框
+- Switch 开关
+- Cascader 多级联动
+- DatePicker 日期选择器
+- TimePicker 时间选择器
+- Upload 上传
+- Rate 评分
+- Slider 滑块
+- Tree 树形组件
+- Frame 框架
 
 ## 事件
 
 | 事件名 | 说明 | 回调值 |
 | ------ | -------------- | ------ |
-| click | 点击按钮时触发 | event |
+| submit | 提交表单 | 校验通过会触发 |

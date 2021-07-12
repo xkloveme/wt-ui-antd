@@ -34,6 +34,7 @@ module.exports = {
           'base/preview.md',
           'base/form.md',
           'base/table.md',
+          'base/card.md',
           // 'base/link.md',
           // 'base/icon.md',
         ],

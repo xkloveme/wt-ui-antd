@@ -68,8 +68,8 @@ export default {
         newOption() {
             const self = this
             const defOption = {
-                onSubmit: function() {
-                    self.$emit('submit', self.fromValue)
+                onSubmit: function(data) {
+                    self.$emit('submit', data)
                 },
                 onReload: function(formData) {
                     console.log('表单已重载')
